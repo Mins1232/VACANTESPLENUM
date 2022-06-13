@@ -1,0 +1,44 @@
+<nav th:fragment="menu-principal" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"  >
+
+	
+  <a class="navbar-brand"  th:href="@{/}" ><img style="width:25px" th:src="@{/images/logosplenum2.png}"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto" >
+     <!-- <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">+
+      <a class="nav-link" th:href="@{/solicitudes/indexPaginate}" >Solicitudes</a>
+	   </li>-->
+	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+	      <a class="nav-link" th:href="@{/vacantes/indexPaginate}">Vacantes</a>
+	   </li>
+	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+	      <a class="nav-link" th:href="@{/categorias/indexPaginate}">Categorías</a>
+	   </li>
+	   <!--<li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">+
+	      <a class="nav-link" th:href="@{/usuarios/index}" >Usuarios</a>
+	   </li>-->
+	  <!-- <li class="nav-item">
+        <a class="nav-link" th:href="@{/about}">Acerca</a>
+      </li>  -->                  
+    </ul>
+    <div sec:authorize="isAnonymous()">
+		<a class="btn btn-info" th:href="@{/index}" >Ingresar</a>&nbsp;
+		<a class="btn btn-info" th:href="@{/signup}">Registrarse</a>
+	</div>	    
+   <!-- <div sec:authorize="isAuthenticated()">
+		<span class="text">Bienvenido</span>&nbsp;<span class="text" sec:authentication="name"></span>&nbsp;
+		<a class="btn btn-info" th:href="@{/logout}">Salir</a>-->
+	</div>    
+  </div>
+  
+  <style>
+        .navbar {
+            background-color: #e3f2fd !important;
+        }
+         .navbar-dark .navbar-nav .nav-link{
+      color:black!important}
+	</style>
+</nav>     
